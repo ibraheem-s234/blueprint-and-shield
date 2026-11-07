@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blueprint &amp; Shield — Websites for Kingston small businesses</title>
-<meta name="description" content="Blueprint & Shield builds simple, fast websites for Kingston small businesses and keeps them running for a flat monthly fee. Service in English and French.">
+<meta name="description" content="Blueprint & Shield builds simple, fast websites for Kingston small businesses and looks after them, monthly or pay as you go. Service in English and French.">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <!--
   BEFORE YOU PUBLISH — replace these 3 things:
   1. FORMSPREE_ID  -> your form ID from formspree.io (search this file for it)
   2. hello@yourdomain.ca -> your real business email (appears twice)
   3. Prices, if you change them (search "$")
+  4. Once you have 3 launch clients, delete the <p class="launch"> line
   Keep icon.svg in the same folder as this file.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -106,7 +107,9 @@
 
   /* Plans */
   .plans-section { background: var(--paper); }
-  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; align-items: start; }
+  .launch { background: var(--ink); color: var(--code); font-family: var(--mono); font-size: .88rem; line-height: 1.5; padding: .7rem .85rem; border-radius: var(--radius); margin: .9rem 0 1rem; }
+  @media (max-width: 1000px) { .plans { grid-template-columns: 1fr 1fr; } .plan.build { grid-column: 1 / -1; } }
   .plan { border: 1px solid var(--line); border-radius: var(--radius); padding: 2rem; background: var(--mist); }
   .plan.care { background: var(--paper); border: 2px solid var(--ink); }
   .price { font-family: var(--mono); font-size: 2.4rem; font-weight: 600; line-height: 1; margin: .25rem 0; }
@@ -115,7 +118,7 @@
   .plan li { margin-bottom: .45rem; }
   .plan li::marker { color: var(--code-deep); }
   .plan .note { font-size: .95rem; color: var(--muted); margin-top: 1rem; }
-  @media (max-width: 760px) { .plans { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .plans { grid-template-columns: 1fr; } .plan.build { grid-column: auto; } }
 
   /* Steps — a real sequence, so numbered */
   .steps { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; counter-reset: step; }
@@ -194,7 +197,7 @@
       <div>
         <p class="motto">Drafted by blueprint. Defended by shield.</p>
         <h1>Your website, built and looked after.</h1>
-        <p class="lead">I build simple, fast websites for Kingston small businesses, then keep them running for a flat monthly fee. When you need a change, you send one message and it's done.</p>
+        <p class="lead">I build simple, fast websites for Kingston small businesses, then look after them, on a simple monthly plan or pay as you go. When you need a change, you send one message and it's done.</p>
         <div class="hero-actions">
           <a class="btn" href="#contact">Book a free 30-minute chat</a>
           <a class="btn btn-quiet" href="#plans">See prices</a>
@@ -218,24 +221,25 @@
 
   <section class="plans-section" id="plans">
     <div class="wrap">
-      <h2>Two things you pay for</h2>
-      <p>Building the site once, and keeping it in good shape every month after. No contracts, and no surprise invoices.</p>
+      <h2>Simple pricing</h2>
+      <p>One price to build your site. After that, choose how you'd like it looked after. No contracts, and every price is agreed before I start.</p>
       <div class="plans">
-        <article class="plan">
+        <article class="plan build">
           <h3>The blueprint</h3>
-          <p class="price">from $250 <small>one time</small></p>
+          <p class="price">$350 <small>one time</small></p>
+          <p class="launch">Launch offer: $200 for my first 3 paying clients, in exchange for a short review.</p>
           <p>A clean site that works on phones and shows up on Google.</p>
           <ul>
             <li>Up to 5 pages: home, services, about, contact, and one of your choice</li>
             <li>Contact form that sends straight to your email</li>
             <li>Google Maps, opening hours, and your social links</li>
-            <li>English, or English and French</li>
+            <li>English or French</li>
             <li>Ready in about 3 weeks</li>
           </ul>
         </article>
         <article class="plan care">
           <h3>The shield</h3>
-          <p class="price">$75 <small>per month</small></p>
+          <p class="price">$50 <small>per month</small></p>
           <p>You never have to think about your website again.</p>
           <ul>
             <li>Hosting, security updates, and backups</li>
@@ -244,6 +248,18 @@
             <li>A real person to text, not a support ticket</li>
           </ul>
           <p class="note">Cancel any time with 30 days' notice. The site and its content stay yours.</p>
+        </article>
+        <article class="plan">
+          <h3>Pay as you go</h3>
+          <p class="price">$50 <small>per fix</small></p>
+          <p>No monthly fee. Message me when you need something changed.</p>
+          <ul>
+            <li>I look at the problem and quote a price before I start</li>
+            <li>Small fixes from $50; bigger jobs quoted up front</li>
+            <li>Your site and hosting stay in your name</li>
+            <li>You only pay when you need me</li>
+          </ul>
+          <p class="note">You can switch to the shield plan at any time.</p>
         </article>
       </div>
     </div>
@@ -263,7 +279,7 @@
         </li>
         <li>
           <h3>I look after it</h3>
-          <p>Your site goes live and the care plan starts. When something changes in your business, I change it on your site.</p>
+          <p>Your site goes live. On the shield plan or pay as you go, when something changes in your business, I change it on your site.</p>
         </li>
       </ol>
     </div>
@@ -322,7 +338,7 @@
             <select id="need" name="need">
               <option>A new website</option>
               <option>Fixes or updates to my current site</option>
-              <option>Just the care plan</option>
+              <option>Help with my existing site</option>
               <option>Not sure yet</option>
             </select>
           </div>
